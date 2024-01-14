@@ -6,6 +6,7 @@ import (
 	"runtime"
 
 	"github.com/naeimc/health"
+	"github.com/naeimc/health/cmd/health/monitor"
 )
 
 func main() {
@@ -15,6 +16,8 @@ func main() {
 	}
 
 	switch os.Args[1] {
+	case "monitor":
+		monitor.Monitor(os.Args[2:])
 	case "version":
 		fmt.Printf("%s v%s %s/%s\n", health.PROGRAM, health.VERSION, runtime.GOOS, runtime.GOARCH)
 	case "license":
